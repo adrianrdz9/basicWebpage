@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </head>
+  <body>
+    <div class="menu">
+      <span>
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+    <div class="menu-screen">
+      <div class="close">
+        <span>
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+      <nav>
+        <a href="#home">
+          <span class="main">Inicio</span>
+          <span>Lorem ipsum dolor sit amet</span>
+        </a>
+        <a href="#about">
+          <span class="main">Imagenes</span>
+          <span>Lorem ipsum dolor sit amet</span>
+        </a>
+        <a href="#mission">
+          <span class="main">Nuestra mision</span>
+          <span>Lorem ipsum dolor sit amet</span>
+        </a>
+        <a href="#ubicacion">
+          <span class="main">¿Donde nos ubicamos?</span>
+          <span>Lorem ipsum dolor sit amet</span>
+        </a>
+        <a href="#contacto">
+          <span class="main">Contacto</span>
+          <span>Lorem ipsum dolor sit amet</span>
+        </a>
+      </nav>
+    </div>
+
+    <section id="home">
+      <div class="grid">
+        <div class="container">
+          <div class="grid-main-area">
+            <div class="text">
+              <h1>Image Space</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <a href="#" class="btn">Ver mas</a>
+            </div>
+            <div class="image">
+              <figure>
+                <img src="./public/images/5.jpg" alt="Fuegos artificiales">
+                <figcaption>Un lugar como ningun otro</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cover parallax">
+        <p>
+          Un hermoso lugar
+          <span>Donde los detalles son lo mas importante</span>
+        </p>
+
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="grid-main-area slider">
+        <div class="text">
+          <div class="controls">
+            <img src="./public/images/right-arrow.svg" id="left-arrow" alt="Flecha izquierda">
+            <img src="./public/images/right-arrow.svg" id="right-arrow" alt="Flecha derecha">
+          </div>
+          <header>
+            <div id="slider-text-content">
+              <p id="slider-subtitle" class="separator">Imagenes</p>
+              <h2 id="slider-title">Lorem ipsum</h2>
+              <p id="slider-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </header>
+        </div>
+
+        <div class="image">
+          <img id="slider-image" src="./public/images/1.jpg" alt="Bosque de arboles altos con sol en el fondo">
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="grid full-height mission">
+        <div class="container">
+          <h1>Nuestra mision</h1>
+
+          <figure>
+            <img src="./public/images/3.jpg" alt="Pared roja con puerta amarilla y bicicleta estacionada sobre la pared.">
+            <figcaption>Lorem ipsum dolor sit amet</figcaption>
+          </figure>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <div id="mapa">
+
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="grid social">
+        <div class="container">
+          <p class="title">Contacto</p>
+          <a href="#" class="btn">Facebook</a>
+          <a href="#" class="btn">Twitter</a>
+          <a href="#" class="btn">Youtube</a>
+          <a href="#" class="btn">Mail</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbbcCMFm59HymifFviCA8jG4Pk6RXR71k" charset="utf-8"></script>
+  </body>
+</html>

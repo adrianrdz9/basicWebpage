@@ -1,0 +1,376 @@
+@import "./modules/_variables.scss";
+@import "./modules/_mixins.scss";
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+
+html, body{
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img{
+  max-width: 100%;
+}
+
+figure{
+  position: relative;
+  max-height: 100%;
+  margin: 0;
+  figcaption{
+    @include caption;
+  }
+  img{
+
+  }
+}
+
+.separator{
+  @include text-center;
+  &::before, &::after{
+    content: "";
+    background-color: currentColor;
+    height: 2px;
+    border-radius: 4px;
+    width: 25%;
+    top: 50%;
+    position: absolute;
+  }
+
+  &::before{
+    left: 2%;
+  }
+
+  &::after{
+    right: 2%;
+  }
+}
+
+.full-height{
+  min-height: 100vh;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.menu{
+  @include menu-button;
+  z-index: 100;
+}
+
+.menu-screen{
+  .close{
+    @include menu-button;
+    @include transition;
+    top: -99vh;
+  }
+  background-color: $white;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  top: -101vh;
+  &.active{
+    .close{
+      top:2em;
+    }
+    top: 0;
+  }
+  @include center-vertical-horizontal;
+  @include transition;
+  a{
+    display: block;
+    text-decoration: none;
+    color: $light-blue;
+    &::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $blue;
+      @include transition;
+      transition-duration: 0.2s;
+      top: 1.2em;
+      left: 0;
+      transform: scale(0);
+    }
+    &:hover::before{
+      transform: scale(1);
+    }
+    &:hover span:not(.main){
+      opacity: 1;
+    }
+    &:hover{
+      color: rgba(darken($light-blue, 35), 0.7);
+    }
+    @include text-center;
+    position: relative;
+    margin-top: 1em;
+    &:first-of-type(){
+      margin-top: 0;
+    }
+    .main{
+      display: block;
+      font-size: 2em;
+    }
+    span:not(.main){
+      color: $red;
+      opacity: 0;
+      @include transition;
+      transition-duration: 0.2s;
+    }
+  }
+}
+
+.grid-main-area{
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: 2fr;
+  grid-template-areas: "title title title title title title title title title" "image image image image image image image image image";
+  margin-top: $big-margin-top;
+  margin-bottom: $big-margin-top;
+  &.slider{
+    margin: 0;
+  }
+  .text{
+    grid-area: title;
+    @include main-text;
+  }
+
+  .image{
+    grid-area: image;
+    @include margin-top;
+  }
+}
+
+.container{
+  grid-column: span 12;
+  padding: $big-padding;
+}
+
+.btn{
+  padding: $large-padding;
+  position: relative;
+  color: $black !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  &:before{
+    content: "";
+    position: absolute;
+    background-color: $light-blue;
+    width: 100%;
+    height: 40%;
+    left: 0;
+    z-index: -1;
+    bottom: 0;
+    transition: all 0.15s ease-out;
+  }
+
+  &:hover::before{
+    height: 100%;
+  }
+}
+
+.cover{
+  @include absolute-cover;
+  @include margin-top;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &.parallax{
+    p{
+      @include caption;
+      background-color: rgba($grey, 0.7);
+      color: darken($blue, 15);
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      left: 0;
+      @include text-right;
+      span{
+        display: block;
+        font-size: $small;
+        font-weight: 100;
+        margin-top: 6px;
+      }
+    }
+    background-attachment: fixed;
+    background-image: url(../../public/images/9.jpg);
+  }
+}
+
+.slider{
+  header{
+    background-color: darken($indigo, 9);
+    color: $white;
+    padding: $big-padding;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    transform: translateY(40px);
+    z-index: 10;
+    position: relative;
+  }
+  .image{
+    margin-top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: baseline;
+  }
+  h2{
+    margin: 0;
+  }
+  #slider-subtitle{
+    width: 100%;
+    position: relative;
+  }
+  .controls{
+    margin-bottom: 10px;
+    text-align: center;
+    display: none;
+    @include transition;
+    transition-duration: 0.15s;
+    cursor: pointer;
+    #left-arrow, #right-arrow{
+      height: 40px;
+    }
+
+    #left-arrow:hover, #right-arrow:hover{
+      opacity: 0.2;
+    }
+    #left-arrow{
+      margin-right: 1.5em;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+#slider-text-content{
+  @include transition;
+  &.hide{
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+#slider-image{
+  @include transition;
+  &.hide{
+    opacity: 0;
+  }
+}
+
+.mission{
+  align-items: center;
+  .container{
+    @include main-text;
+    font-size: 1.1em;
+    figure{
+      margin-left: 30px;
+      float: right;
+      figcaption{
+        color: darken($blue, 7);
+        font-size: $small;
+        font-weight: 200;
+      }
+      img{
+        max-height: 400px;
+      }
+    }
+    p{
+      line-height: 2em;
+      &:nth-of-type(1){
+        margin-bottom: 3em;
+        position: relative;
+        &::after{
+          content: "";
+          position: absolute;
+          background-color: $indigo;
+          right: 0;
+          z-index: -1;
+          bottom: -1.2em;
+          border-radius: 15px;
+          height: 4px;
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+#mapa{
+  width: 100%;
+  min-height: 600px;
+  margin-top: $big-margin-top;
+}
+
+.social{
+  margin-top: $big-margin-top;
+  margin-bottom: $big-margin-top;
+  @include text-center;
+  p.title{
+    font-weight: 100;
+    font-size: 2.5em;
+  }
+  a{
+    display: block;
+    max-width: 150px;
+    margin: 1em auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .container{
+    grid-column: 2 / 12;
+  }
+
+  .grid-main-area{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas: "title title title image image image image image image";
+    .image{
+      figure{
+        figcaption{
+          color: rgba(lighten($indigo, 20) ,0.4);
+        }
+      }
+    }
+  }
+
+  .slider{
+    align-items: center;
+    header{
+      transform: translateX(100px);
+      width: 100%;
+      min-height: 350px;
+    }
+    .image{
+      align-items: center;
+    }
+    .controls{
+      text-align: right;
+      padding-right: 2em;
+    }
+  }
+
+  #slider-text-content{
+    &.hide{
+      transform: translateX(100px);
+    }
+  }
+
+  .social{
+    a{
+      display: inline-block;
+      margin-top: 0;
+      margin-right: 90px;
+      &:last-of-type(){
+        margin-right: 0;
+      }
+    }
+  }
+}
